@@ -22,7 +22,7 @@ I2 = eye(n);
 %My issue is that I have no idea why this is the case...
 
 H1 = k*H1;
-%H2 = k*H2;
+H2 = k*H2;
 X = kron(H1,I1);
 Y = kron(I2,H2);
 
