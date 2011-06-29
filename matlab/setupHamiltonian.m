@@ -2,6 +2,8 @@ function H = setupHamiltonian(n, dimensions)
 
     if (dimensions < 1 || dimensions > 2)
         H = 'Error: Dimensions dont make sense'
+        return;
+    end
 
     %For this to work you must set the effective mass as 'm'
     %and you must set the step-size 'a'
@@ -13,7 +15,7 @@ function H = setupHamiltonian(n, dimensions)
     %k = -((hbar^2)/2*m*a^2); 
 
     %Coefficient and Identity Matrices for each Dimentions
-    H1 = setCoefficient(n, 2);
+    H1 = setCoefficient(n, -2);
     I1 = eye(n);
 
     % So this is where I am a bit hazy right now...
@@ -27,7 +29,6 @@ function H = setupHamiltonian(n, dimensions)
     %My issue is that I have no idea why this is the case...
     
     temp = cell(1,dimensions);
-    
     H = zeros(n^dimensions);
     
     for i = 1:dimensions
@@ -39,7 +40,7 @@ function H = setupHamiltonian(n, dimensions)
         return;
     elseif (dimensions == 2)
         temp{1} = kron(H1,I1);
-        temp{2} = kron(I2,H2);
+        temp{2} = kron(I1,H1);
     end
 
     for i = 1:size(temp,2)
