@@ -28,6 +28,11 @@ function H = setupHamiltonian(n, dimensions)
     % I2 x H2 for the Y dimention
     %My issue is that I have no idea why this is the case...
     
+    if (dimensions == 1)
+        H = H1;
+        return;
+    end
+        
     temp = cell(1,dimensions);
     H = zeros(n^dimensions);
     
@@ -35,13 +40,8 @@ function H = setupHamiltonian(n, dimensions)
         temp{i} = zeros(n^dimensions);
     end
     
-    if (dimensions == 1)
-        H = temp{1};
-        return;
-    elseif (dimensions == 2)
-        temp{1} = kron(H1,I1);
-        temp{2} = kron(I1,H1);
-    end
+    temp{1} = kron(H1,I1);
+    temp{2} = kron(I1,H1);
 
     for i = 1:size(temp,2)
         H = H + temp{i};
