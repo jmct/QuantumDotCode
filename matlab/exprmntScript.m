@@ -2,7 +2,7 @@
 %and you must set the step-size 'a'
 
 hbar = (6.626068e-34)/(2* pi);
-k = -((hbar^2)/2*m*a^2);
+k = 1;  %-((hbar^2)/2*m*a^2);
 N = 100; %Finite element basis
 
 %Haniltonians and Identity Matrices for each Dimentions
