@@ -1,4 +1,4 @@
-function H = setHamiltonian(n, corners)
+    function H = setCoefficient(n, corners)
 	H = zeros(n); %initialize empty matrix of size n
 	
 	%use determined coefficients to fill diagonal
@@ -13,5 +13,7 @@ function H = setHamiltonian(n, corners)
 	H(1,2) = 1;
 	H(n,n) = corners;
 	H(n,n-1) = 1;
+	
+	H = sparse(H);
 	
 end	
