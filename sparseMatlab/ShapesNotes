@@ -8,7 +8,8 @@ Shapes:
 	The issue is that each primitive may vary in number. In order
 	to avoid complicating this we will first count the number of 
 	each primitive and then run for loops that correspond to each
-	primitive.
+	primitive. We can count the number of each primitive as they 
+	are created and pass those numbers to the 'calcV' function.
 
 	Ideally we would then crate a file that could be read in order
 	to create the shapes cell-array.
