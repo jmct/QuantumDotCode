@@ -1,4 +1,4 @@
-function V= calcV(shapes, numShapes)
+function V = calcV(shapes, numShapes, n)
 	%the shapes structure is a cell array where the
 	%first dimension corresponds to the primitives
 	%as follows: 1->circle, 2->cube, 3->cylinder
@@ -14,22 +14,50 @@ function V= calcV(shapes, numShapes)
 	%(same order as the first dimension of the cell 
 	%array)
 
-	indeces = zeros(100^3,1);
+	indeces = zeros(n^3,1);
+	%indeces will be the diagonal of the V matrix
+	
+	count = 1;
+	hit = 0; %if the coordinate is within a shape it is a 'hit'
+	%hits will remove the index from the indeces vector
 
-	for z = 1:100
-	    for y = 1:100
-	        for x = 1:100
-		    for i = 1:numShapes(1)
-		    	if (isInSphere(x,y,z,shapes{1,i}))
-			    
+
+	for z = 1:n
+	    for y = 1:n
+	        for x = 1:n
+				indx = coordToIndex3D(x,y,z,n);
+				indeces(count) = indx;
+				hit = 0;
+				%go through each Sphere
+			    for i = 1:numShapes(1)
+			    	if (isInSphere(x,y,z,shapes{1,i}))
+			    		hit = 1;
+					end
+		        end
+		
+				%each Cube
+				for i = 1:numShapes(2)
+					if (isInCube(x,y,z,shapes{2,i}))
+						hit = 1;
+					end
+				end
+				
+				%each cylinder
+				for i = 1:numShapes(3)
+					if (isInCylinder(x,y,z,shapes{3,i}))
+						hit = 1;
+					end
+				end
+				
+				if (hit == 0)
+					count = count + 1;
+				end
+				
 			end
-	            end
-		end
 	    end
 	end
-
-
-
+	
+	V = sparse(indeces(1:(count-1)), indeces(1:(count-1)), realmax);
 
 
 end
