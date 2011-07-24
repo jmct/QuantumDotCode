@@ -1,0 +1,14 @@
+Shapes:
+
+	For storng the different primitvies that make up our shape
+	we will be using a 2D 'cell' array. The first dimension
+	is for each different primitive (sphere, cylinder, cube ...)
+	the second dimension is for each instance of that primitive.
+
+	The issue is that each primitive may vary in number. In order
+	to avoid complicating this we will first count the number of 
+	each primitive and then run for loops that correspond to each
+	primitive.
+
+	Ideally we would then crate a file that could be read in order
+	to create the shapes cell-array.
