@@ -1,4 +1,4 @@
-function V = calcV(shapes, numShapes, n)
+function V = calcV(shapes, numShapes, elecFieldMax, n)
 	%the shapes structure is a cell array where the
 	%first dimension corresponds to the primitives
 	%as follows: 1->circle, 2->cube, 3->cylinder
@@ -21,6 +21,12 @@ function V = calcV(shapes, numShapes, n)
 	hit = 0; %if the coordinate is within a shape it is a 'hit'
 	%hits will remove the index from the indeces vector
 
+	m = elecFieldMax/n;
+	elecPot = 0;
+	%this calculates the slope of the plane for the electric field
+	%so if there are 100 sample points the electric potential of a 
+	%point inside the quantum dot is m*x + b where b = -1 so that 
+	%the electric potential of a point at x = 1 is 0
 
 	for z = 1:n
 	    for y = 1:n
@@ -28,6 +34,9 @@ function V = calcV(shapes, numShapes, n)
 				indx = coordToIndex3D(x,y,z,n);
 				indeces(count) = indx;
 				hit = 0;
+				elecPot = m*x - 1;
+				
+				
 				%go through each Sphere
 			    for i = 1:numShapes(1)
 			    	if (isInSphere(x,y,z,shapes{1,i}))
