@@ -39,6 +39,7 @@ function V = calcV(shapes, numShapes, elecFieldMax, n)
 				%go through each Sphere
 			    for i = 1:numShapes(1)
 			    	if (isInSphere(x,y,z,shapes{1,i}))
+						indeces(indx) = elecPot;
 			    		hit = 1;
 					end
 		        end
@@ -46,6 +47,7 @@ function V = calcV(shapes, numShapes, elecFieldMax, n)
 				%each Cube
 				for i = 1:numShapes(2)
 					if (isInCube(x,y,z,shapes{2,i}))
+						indeces(indx) = elecPot;
 						hit = 1;
 					end
 				end
@@ -53,6 +55,7 @@ function V = calcV(shapes, numShapes, elecFieldMax, n)
 				%each cylinder
 				for i = 1:numShapes(3)
 					if (isInCylinder(x,y,z,shapes{3,i}))
+						indeces(indx) = elecPot;
 						hit = 1;
 					end
 				end
@@ -65,7 +68,7 @@ function V = calcV(shapes, numShapes, elecFieldMax, n)
 	    end
 	end
 	
-	V = sparse(indeces(1:(count-1)), indeces(1:(count-1)), realmax);
+	V = sparse(indeces, indeces, realmax);
 
 
 end
