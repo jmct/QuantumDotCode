@@ -1,15 +1,9 @@
 Shapes:
 
-	For storng the different primitvies that make up our shape
-	we will be using a 2D 'cell' array. The first dimension
-	is for each different primitive (sphere, cylinder, cube ...)
-	the second dimension is for each instance of that primitive.
+	Each shape will be a vector containing the required
+parameters for each object AND will have a marker for the type of 
+shape it is. For example:
 
-	The issue is that each primitive may vary in number. In order
-	to avoid complicating this we will first count the number of 
-	each primitive and then run for loops that correspond to each
-	primitive. We can count the number of each primitive as they 
-	are created and pass those numbers to the 'calcV' function.
+sphere could have a form as follows: [1,x,y,z,radius]
 
-	Ideally we would then crate a file that could be read in order
-	to create the shapes cell-array.
+where the first index is the signifier for a sphere (1).
