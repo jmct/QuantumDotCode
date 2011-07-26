@@ -1,4 +1,4 @@
-function index = coordToIndex(i, j)
-    index = ((i-1)*100) + j;
+function index = coordToIndex(i, j, n)
+    index = ((i-1)*n) + j;
 
 end

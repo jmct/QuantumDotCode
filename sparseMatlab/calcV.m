@@ -25,35 +25,35 @@ function V = calcV(shapes, numShapes, n)
 	for z = 1:n
 	    for y = 1:n
 	        for x = 1:n
-				indx = coordToIndex3D(x,y,z,n);
-				indeces(count) = indx;
-				hit = 0;
-				%go through each Sphere
-			    for i = 1:numShapes(1)
-			    	if (isInSphere(x,y,z,shapes{1,i}))
-			    		hit = 1;
-					end
-		        end
-		
-				%each Cube
-				for i = 1:numShapes(2)
-					if (isInCube(x,y,z,shapes{2,i}))
-						hit = 1;
-					end
-				end
-				
-				%each cylinder
-				for i = 1:numShapes(3)
-					if (isInCylinder(x,y,z,shapes{3,i}))
-						hit = 1;
-					end
-				end
-				
-				if (hit == 0)
-					count = count + 1;
-				end
-				
+	            indx = coordToIndex3D(x,y,z,n);
+		    indeces(count) = indx;
+		    hit = 0;
+	            %go through each Sphere
+	            for i = 1:numShapes(1)
+	                if (isInSphere(x,y,z,shapes{1,i}))
+	                    hit = 1;
 			end
+		    end
+		
+		    %each Cube
+		    for i = 1:numShapes(2)
+			if (isInCube(x,y,z,shapes{2,i}))
+			    hit = 1;
+			end
+		    end
+				
+		    %each cylinder
+		    for i = 1:numShapes(3)
+			if (isInCylinder(x,y,z,shapes{3,i}))
+			    hit = 1;
+			end
+		    end
+				
+		    if (hit == 0)
+		        count = count + 1;
+		    end
+				
+		end
 	    end
 	end
 	

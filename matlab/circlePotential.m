@@ -8,7 +8,7 @@ function V = circlePotential(n, radius)
     for i = 1:n
         for j = 1:n
             dst = sqrt((abs(i-center)^2)+(abs(j-center))^2);
-            index = coordToIndex(i,j);
+            index = coordToIndex(i,j, n);
             if (dst <= radius)
                 V(index,index) = 0; 
 
