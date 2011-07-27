@@ -1,6 +1,6 @@
 function H = setupH3(n)
 
-    H1 = setCoefficient(n, -2);
+    H1 = setCoefficient(n, 2);
     I1 = eye(n);
 
     H = zeros(n^3);

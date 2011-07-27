@@ -1,4 +1,4 @@
-function V = calcV(shapes, n)
+function V = calcV(shapes, n, vMax)
 	%the shapes structure is a cell array containing
 	%all the defined shapes
 
@@ -18,7 +18,7 @@ function V = calcV(shapes, n)
 				hit = 0;
 				
 				for i = 1:size(size(shapes,2))
-					if (isInShape(shape{i}))
+					if (isInShape(x,y,z, shapes{i}))
 						hit = 1;
 					end
 				end
@@ -30,7 +30,7 @@ function V = calcV(shapes, n)
 		end
 	end
 	
-	V = sparse(indeces(1:(count-1)), indeces(1:(count-1)), realmax);
+	V = sparse(indeces(1:(count-1)), indeces(1:(count-1)), vMax);
 
 
 end

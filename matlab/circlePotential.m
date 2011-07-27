@@ -1,4 +1,4 @@
-function V = circlePotential(n, radius)
+function V = circlePotential(n, radius, vMax)
     center = (n+1)/2;
     
     V = zeros(n^2);
@@ -13,7 +13,7 @@ function V = circlePotential(n, radius)
                 V(index,index) = 0; 
 
             else
-                V(index,index) = realmax;
+                V(index,index) = vMax;
             end
         end
     end

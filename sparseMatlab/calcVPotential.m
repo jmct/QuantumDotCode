@@ -1,4 +1,4 @@
-function V = calcV(shapes, elecFieldMax, n)
+function V = calcVPotential(shapes, elecFieldMax, n, vMax)
 	%the shapes structure is a cell array containing
 	%all the defined shapes
 
@@ -26,20 +26,20 @@ function V = calcV(shapes, elecFieldMax, n)
 				
 				%go through each shape
 				for i = 1:size(shapes,2)
-					if (isInShape(shapes{i}))
+					if (isInShape(x,y,z, shapes{i}))
 						indeces(indx) = elecPot;
 						hit = 1;
 					end
 				end
 				
 				if (hit == 0)
-					indeces(indx) = realmax;
+					indeces(indx) = vMax;
 				end				
 			end
 		end
 	end
 	
-	V = sparse(indeces, indeces, realmax);
+	V = sparse(1:n^3, 1:n^3, indeces);
 
 
 end
