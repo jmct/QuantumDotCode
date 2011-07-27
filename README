@@ -2,4 +2,8 @@ This is the initial prototype/ideas code for a simulation of quantum dots
 using the Finite Element Method. 
 
 I will be testing my ideas in Matlab and then hopefully (if time allows) 
-moving to some faster implementation.
+moving to some faster implementation. 
+
+Currently the files are organised in two directories, one for each style
+of matrix representation. There are some file redundancies between the two
+directories. This is done so that each directory can be used on its own. 
