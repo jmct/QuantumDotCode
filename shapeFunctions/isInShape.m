@@ -8,7 +8,7 @@ function isIn = isInShape(x,y,z,shape)
 	if (shape(1) == 1)
 		isIn = isInSphere(x,y,z, shape(2:size(shape,2)));
 	elseif (shape(1) == 2)
-		isIn = isInRecPrism(x,y,z, shape(2:size(shape,2)));
+		isIn = isInCube(x,y,z, shape(2:size(shape,2)));
 	elseif (shape(1) == 3)
 		isIn = isInCylinder(x,y,z, shape(2:size(shape,2)));
 	end

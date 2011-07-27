@@ -16,7 +16,7 @@ function V = calcVFull(shapes, n)
 					if (isInShape(x,y,z, shapes{i}))
 						V(indx,indx) = 0;
 					else
-						V(indx,indx) = realmax;
+						V(indx,indx) = 100;
 					end
 				end
 			end

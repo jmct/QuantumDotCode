@@ -5,10 +5,10 @@ function V = circlePotential(n, radius)
     dst = realmax;
     index = 1;
     
-    for i = 1:n
-        for j = 1:n
-            dst = sqrt((abs(i-center)^2)+(abs(j-center))^2);
-            index = coordToIndex(i,j, n);
+    for y = 1:n
+        for x = 1:n
+            dst = sqrt((abs(y-center)^2)+(abs(x-center))^2);
+            index = coordToIndex(y,x, n);
             if (dst <= radius)
                 V(index,index) = 0; 
 

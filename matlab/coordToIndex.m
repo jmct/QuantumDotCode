@@ -1,4 +1,3 @@
-function index = coordToIndex(i, j, n)
-    index = ((i-1)*n) + j;
-
+function index = coordToIndex(x, y, n)
+    index = ((y-1)*n) + x;
 end
