@@ -12,7 +12,7 @@ function V = calcVFull(shapes, n)
 				indx = coordToIndex3D(x,y,z,n);
 				hit = 0;
 				
-				for i = 1:size(size(shapes,2))
+				for i = 1:size(shapes,2)
 					if (isInShape(x,y,z, shapes{i}))
 						V(indx,indx) = 0;
 					else
