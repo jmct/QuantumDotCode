@@ -6,12 +6,14 @@ fileID = fopen('/usr/jmc512/QuantumDotCode/sparseMatlab/cubeTest1.csv', 'a');
 temp = 0;
 
 for i = 1:100
-    V = calcVPotential(shapes,(i-1)*100, 50, 1000);
+    V = calcVPotential(shapes,i*100, 50, 1000);
     H = K + V;
-	eigsAns = eigs(H,2,'SM');
-	temp = eigsAns(1) - eigsAns(2);
-	fprintf(fileID,'%d,%f\n', (i-1)*100, temp);
-	i
+    tic
+    eigsAns = eigs(H,2,'SM');
+    toc
+    temp = eigsAns(1) - eigsAns(2);
+    fprintf(fileID,'%d,%f\n', i*100, temp);
+    i
 end
 
 fclose(fileID);
