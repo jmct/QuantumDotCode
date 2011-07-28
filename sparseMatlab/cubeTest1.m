@@ -2,7 +2,7 @@ cube = [2,10,10,10,30,30,30];
 shapes = {cube};
 K = setupK3(50);
 
-fileID = fopen('cubeTest1.csv', 'a');
+fileID = fopen('/usr/jmc512/QuantumDotCode/sparseMatlab/cubeTest1.csv', 'a');
 temp = 0;
 
 for i = 1:100
