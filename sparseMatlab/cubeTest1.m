@@ -8,7 +8,7 @@ temp = 0;
 for i = 1:100
     V = calcVPotential(shapes,(i-1)*100, 50, 1000);
     H = K + V;
-	eigsAns = eigs(H);
+	eigsAns = eigs(H,2,'SM');
 	temp = eigsAns(1) - eigsAns(2);
 	fprintf(fileID,'%d,%f\n', (i-1)*100, temp);
 	i
