@@ -1,3 +1,5 @@
 *.mat
 *.txt
 *.csv
+*.png
+*.ps
