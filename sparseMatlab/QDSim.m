@@ -1,7 +1,8 @@
 function results = QDSim(L,n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSize)
 
 	K = setupK3(n);
-
+	
+	shapes = resizeShapes(shapes, n);
 
 	fileName = sprintf('/usr/jmc512/QuantumDotCode/sparseMatlab/%d_%d_%d_%d-%d.csv', ...
 						L,n,vMax,elecFieldMin, elecFieldMax);
@@ -23,6 +24,7 @@ function results = QDSim(L,n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSi
 	    temp = eigsAns(1) - eigsAns(2);
 	    fprintf(fileID,'%f,%f,%d,%f\n',eigsAns(1), eigsAns(2), i, temp);
 	    results(count,:) = [eigsAns(1),eigsAns(2), i,temp];
+		i
 		count = count + 1
 	end
 
