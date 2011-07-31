@@ -8,6 +8,8 @@ function V = calcVPotential(shapes, elecFieldMax, n, vMax)
 	count = 1;
 	hit = 0; %if the coordinate is within a shape it is a 'hit'
 	%hits will remove the index from the indeces vector
+	
+	shapes = resizeShapes(shapes, n);
 
 	m = elecFieldMax/n;
 	elecPot = 0;

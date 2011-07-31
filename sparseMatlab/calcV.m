@@ -5,6 +5,8 @@ function V = calcV(shapes, n, vMax)
 	indeces = zeros(n^3,1);
 	%indeces will be the diagonal of the V matrix
 	
+	shapes = resizeShapes(shapes, n);
+	
 	count = 1;
 	hit = 0; %if the coordinate is within a shape it is a 'hit'
 	%hits will remove the index from the indeces vector
