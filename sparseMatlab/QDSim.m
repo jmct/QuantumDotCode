@@ -43,7 +43,7 @@ function results = QDSim(L,n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSi
 	fileName = sprintf('%d_%d_%d_%d-%dDif', ...
 						L,n,vMax,elecFieldMin, elecFieldMax);
 
-	plot(results(:,3),results(:,1));
+	plot(results(:,3),results(:,4));
 	saveas(gcf, fileName, 'png');
 
 end
