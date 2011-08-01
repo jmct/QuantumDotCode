@@ -1,15 +1,24 @@
-function results = QDSim(L,n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSize)
+function results = QDSim(n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSize)
 
-	K = setupK3(n);
+	%delta is the size of the spacing between sample points
+	%here we have defined L to be 1 in all three dimensions
+	delta = 1/(n-1);
+	K = (1/(delta^2))*setupK3(n);
 	
+
 	shapes = resizeShapes(shapes, n);
 
-	fileName = sprintf('/usr/jmc512/QuantumDotCode/sparseMatlab/%d_%d_%d_%d-%d.csv', ...
-						L,n,vMax,elecFieldMin, elecFieldMax);
-	
-	fileID = fopen(fileName, 'a');
+	%setup the file for where we are saving out results
+	%you'd have to change this if using it anywhere else
+	%as MATLAB does not allow for us to use relational
+	%paths in creating a file (it should...)
+	fileName = sprintf('/usr/jmc512/QuantumDotCode/sparseMatlab/%d_%d_%d-%d.csv', ...
+						n,vMax,elecFieldMin, elecFieldMax);
+	fileID = fopen(fileName, 'w');
 	temp = 0;
 	
+	%numberOfiterations is used to ensure that we allocate
+	%the appropriate size for the array of results
 	numberOfIterations = (elecFieldMax-(elecFieldMin-1))/elecStepSize;
 	results = zeros(numberOfIterations,4);
 	count = 1;
@@ -28,22 +37,28 @@ function results = QDSim(L,n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSi
 		count = count + 1
 	end
 
+	%close the results file
 	fclose(fileID);
 
+
+	%Below is the plotting of the graphs I'm currently interested in
+	%a good move would be to create a plotting function and pass the results
+	%array and that way the desired plots can be defined and modified in one place
 	figure, close
 	
-	fileName = sprintf('%d_%d_%d_%d-%d', ...
-						L,n,vMax,elecFieldMin, elecFieldMax);
+	fileName = sprintf('%d_%d_%d-%d', ...
+						n,vMax,elecFieldMin, elecFieldMax);
 
 	plot(results(:,3),results(:,1));
 	saveas(gcf, fileName, 'png');
 
 	figure, close
 	
-	fileName = sprintf('%d_%d_%d_%d-%dDif', ...
-						L,n,vMax,elecFieldMin, elecFieldMax);
+	fileName = sprintf('%d_%d_%d-%dDif', ...
+						n,vMax,elecFieldMin, elecFieldMax);
 
 	plot(results(:,3),results(:,4));
 	saveas(gcf, fileName, 'png');
 
+	figure, close
 end
