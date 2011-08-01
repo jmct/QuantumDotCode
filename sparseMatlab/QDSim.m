@@ -32,12 +32,18 @@ function results = QDSim(L,n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSi
 
 	figure, close
 	
-	fileName = sprintf('%d_%d_%d_%d-%d.csv', ...
+	fileName = sprintf('%d_%d_%d_%d-%d', ...
 						L,n,vMax,elecFieldMin, elecFieldMax);
 
 	plot(results(:,3),results(:,1));
 	saveas(gcf, fileName, 'png');
 
+	figure, close
+	
+	fileName = sprintf('%d_%d_%d_%d-%dDif', ...
+						L,n,vMax,elecFieldMin, elecFieldMax);
 
+	plot(results(:,3),results(:,1));
+	saveas(gcf, fileName, 'png');
 
 end
