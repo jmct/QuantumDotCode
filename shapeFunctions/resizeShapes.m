@@ -9,10 +9,16 @@ function shapes2 = resizeShapes(shapes1, n)
 	
 	shapes2 = cell(size(shapes1));
 	
-	scaleFactor = n/100;
+	scaleFactor = (n-1)/100;
 	
 	for i = 1:size(shapes1, 2)
-		shapes2{i} = [shapes1{i}(1), shapes1{i}(2:size(shapes1{i},2)).*scaleFactor];
+        if (shapes1{i}(1) == 1)
+            shapes2{i} = resizeSphere(shapes1{i}, scaleFactor);
+        elseif (shapes1{i}(1) == 2)
+            shapes2{i} = resizeCube(shapes1{i}, scaleFactor);
+        elseif (shapes1{i}(1) == 3)
+            shapes2{i} = resizeCyl(shapes1{i}, scaleFactor);
+        end
 	end
 
 

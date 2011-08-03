@@ -4,3 +4,4 @@
 *.png
 *.ps
 sparseMatlab/cubeTest1.m
+*.fig
