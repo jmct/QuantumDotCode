@@ -1,6 +1,6 @@
 L = 1;
 iterations = 5;
-results = zeros(1,iterations*2);
+results = zeros(1,iterations);
 
 shapes = {[2,10,10,10,80,80,80]};
 
@@ -13,12 +13,13 @@ fileID = fopen(fileName, 'w');
     
 for i = 1:iterations
     N = ((5+(i-1))*5)+1;
-    K = (((N-1)/L)^2) * setupK3(M);
+    K = (((N-1)/L)^2) * setupK3(N);
     V = calcV(shapes, N, 2000)*(L/(N-1));
     H = K+V;
     diff = eigs(H,2,'SM');
     results(:,i) = diff(1) - diff(2);
     fprintf(fileID, '%f,%f,%f\n', diff(1), diff(2), diff(1)-diff(2));
+    i
 end
 
 plot(1:iterations,results(1,:));
