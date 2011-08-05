@@ -11,7 +11,7 @@ for i = 1:iterations
 end
 for i = 1:iterations
 M = 1+frac*(N(i) - 1);
-H = (((M-1)/(frac*L))^2) * setupK3(M);
+H = (((M-1)/(frac*L))^2) * setupK3(M-2);
 dif = eigs(H, 2, 'SM');
 results(:,i) = dif(1)  - dif(2);
 i
@@ -21,3 +21,5 @@ figure, close
 
 
 plot(N, results);
+saveas(gcf, 'M-2Matrix', 'png');
+figure, close

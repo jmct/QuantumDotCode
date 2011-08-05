@@ -1,6 +1,6 @@
 function K = setupK3(n)
 
-    K1 = setCoefficient(n, 1);
+    K1 = setCoefficient(n, 2);
     I1 = sparse(1:n,1:n,1);
 
     
