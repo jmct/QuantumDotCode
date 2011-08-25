@@ -2,6 +2,8 @@ function V = calcVPotential(shapes, elecFieldMax, n, vMax)
 	%the shapes structure is a cell array containing
 	%all the defined shapes
 
+	delta = 1/(n-1);
+
 	indeces = zeros(n^3,1);
 	%indeces will be the diagonal of the V matrix
 	
@@ -9,7 +11,10 @@ function V = calcVPotential(shapes, elecFieldMax, n, vMax)
 	hit = 0; %if the coordinate is within a shape it is a 'hit'
 	%hits will remove the index from the indeces vector
 	
-	shapes = resizeShapes(shapes, n);
+	%I think that resizing the shapes is unnecassary when
+	%we use the L = 1 paradigm and have the coordintes
+	%be the sample number times the delta (spacing)
+	%shapes = resizeShapes(shapes, n);
 
 	m = elecFieldMax/n;
 	elecPot = 0;
