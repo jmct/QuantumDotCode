@@ -7,3 +7,5 @@ sparseMatlab/cubeTest1.m
 *.fig
 sparseMatlab/QDSim2.m
 sparseMatlab/calcVPotential2.m
+eigsTest/
+*~
