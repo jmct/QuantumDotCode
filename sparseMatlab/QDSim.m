@@ -12,8 +12,7 @@ function results = QDSim(n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSize
 	%you'd have to change this if using it anywhere else
 	%as MATLAB does not allow for us to use relational
 	%paths in creating a file (it should...)
-	fileName = sprintf('/usr/jmc512/QuantumDotCode/sparseMatlab/%d_%d_%d-%d.csv', ...
-						n,vMax,elecFieldMin, elecFieldMax);
+	fileName = sprintf('log/%d_%d_%d-%d.csv', n,vMax,elecFieldMin, elecFieldMax);
 	fileID = fopen(fileName, 'w');
 	temp = 0;
 	
@@ -44,16 +43,14 @@ function results = QDSim(n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSize
 	%array and that way the desired plots can be defined and modified in one place
 	figure, close
 	
-	fileName = sprintf('%d_%d_%d-%d', ...
-						n,vMax,elecFieldMin, elecFieldMax);
+	fileName = sprintf('%d_%d_%d-%d', n,vMax,elecFieldMin, elecFieldMax);
 
 	plot(results(:,3),results(:,1));
 	saveas(gcf, fileName, 'png');
 
 	figure, close
 	
-	fileName = sprintf('%d_%d_%d-%dDif', ...
-						n,vMax,elecFieldMin, elecFieldMax);
+	fileName = sprintf('%d_%d_%d-%dDif', n,vMax,elecFieldMin, elecFieldMax);
 
 	plot(results(:,3),results(:,4));
 	saveas(gcf, fileName, 'png');
