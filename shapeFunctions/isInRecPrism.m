@@ -34,5 +34,7 @@ function isIn = isInRecPrism(x,y,z, recPrism)
         (t_minZ <= 0 || t_minZ >= 1) )
         isIn = 0;
         return;
+    else 
+	isIn = 1;
     end
 end

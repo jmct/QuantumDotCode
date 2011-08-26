@@ -28,7 +28,7 @@ function V = calcVPotential(shapes, elecFieldMax, n, vMax)
 			for x = 1:n
 				indx = coordToIndex3D(x,y,z,n);
 				hit = 0;
-				elecPot = m*x - 1;
+				elecPot = m*x;
 				
 				
 				%go through each shape
