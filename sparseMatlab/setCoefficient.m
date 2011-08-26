@@ -8,11 +8,13 @@
 		K(i,i+1) = -1;
 	end
 	
-	%Ensure tKat tKe corners of tKe matrix are wKat we desire
+	%Ensure that the corners of the matrix are what we desire
+	%old version that worked:
 	K(1,1) = corners;
 	K(1,2) = -1;
 	K(n,n) = corners;
 	K(n,n-1) = -1;
+
 	
 	K = sparse(K);
 	

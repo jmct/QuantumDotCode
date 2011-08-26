@@ -11,15 +11,26 @@ for i = 1:iterations
 end
 for i = 1:iterations
 M = 1+frac*(N(i) - 1);
+H = (((M-1)/(frac*L))^2) * setupK3(M);
+dif = eigs(H, 2, 'SM');
+results(:,i) = dif(1)  - dif(2)
+i;
+end
+
+FileID = fopen('log/M.csv', 'w');
+fprintf(FileID, '%d,%f\n', [N;results]);
+
+for i = 1:iterations
+M = 1+frac*(N(i) - 1);
 H = (((M-1)/(frac*L))^2) * setupK3(M-2);
 dif = eigs(H, 2, 'SM');
 results(:,i) = dif(1)  - dif(2);
 i
 end
 
-figure, close
 
+fclose(FileID);
+FileID = fopen('log/M-2.csv', 'w');
+fprintf(FileID, '%d,%f\n', [N;results]);
 
-plot(N, results);
-saveas(gcf, 'M-2Matrix', 'png');
-figure, close
+fclose(FileID);
