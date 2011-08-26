@@ -32,8 +32,11 @@ function V = calcVPotential(shapes, elecFieldMax, n, vMax)
 				
 				
 				%go through each shape
+				xVal = (x-1) * delta;
+				yVal = (y-1) * delta;
+				zVal = (z-1) * delta;
 				for i = 1:size(shapes,2)
-					if (isInShape(x,y,z, shapes{i}))
+					if (isInShape(xVal,yVal,zVal, shapes{i}))
 						indeces(indx) = elecPot;
 						hit = 1;
 					end

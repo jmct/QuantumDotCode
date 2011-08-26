@@ -30,8 +30,8 @@ function isIn = isInRecPrism(x,y,z, recPrism)
     %test point is outside the 'length' of the prism.
     %if t_min is < 0 or > 1 then it's not within the prism
 				
-    if ((t_minX < 0 || t_minX > 1) || (t_minY < 0 || t_minY > 1) || ...
-        (t_minZ < 0 || t_minZ > 1) )
+    if ((t_minX <= 0 || t_minX >= 1) || (t_minY <= 0 || t_minY >= 1) || ...
+        (t_minZ <= 0 || t_minZ >= 1) )
         isIn = 0;
         return;
     end

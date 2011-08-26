@@ -5,8 +5,8 @@ function results = QDSim(n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSize
 	delta = 1/(n-1);
 	K = (1/(delta^2))*setupK3(n);
 	
-
-	shapes = resizeShapes(shapes, n);
+        %I don't think that I'll need to resize the shapes using the new format
+	%shapes = resizeShapes(shapes, n);
 
 	%setup the file for where we are saving out results
 	%you'd have to change this if using it anywhere else
@@ -27,9 +27,7 @@ function results = QDSim(n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSize
 		
 	    V = calcVPotential(shapes,i, n, vMax);
 	    H = K + V;
-	    tic
 	    eigsAns = eigs(H,2,'SM');
-	    toc
 	    temp = eigsAns(1) - eigsAns(2);
 	    fprintf(fileID,'%f,%f,%d,%f\n',eigsAns(1), eigsAns(2), i, temp);
 	    results(count,:) = [eigsAns(1),eigsAns(2), i,temp];
