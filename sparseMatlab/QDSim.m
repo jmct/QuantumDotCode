@@ -18,7 +18,7 @@ function results = QDSim(n,vMax,shapes, elecFieldMin, elecFieldMax, elecStepSize
 	
 	%numberOfiterations is used to ensure that we allocate
 	%the appropriate size for the array of results
-	numberOfIterations = (elecFieldMax-(elecFieldMin-1))/elecStepSize;
+	numberOfIterations = (elecFieldMax-(elecFieldMin))/elecStepSize;
 	results = zeros(numberOfIterations,4);
 	count = 1;
 
