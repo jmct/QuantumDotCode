@@ -3,7 +3,7 @@
 #$ -e josejobs-stderr.txt
 #$ -M jmc521@student.cs.york.ac.uk
 #$ -S /bin/bash
-#$ -l mem_total=10G
+#$ -l mem_total=20G
 #$ -N josejob
 
 cd /n/sebase/jps/jose/sparseMatlab
