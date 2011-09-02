@@ -1,8 +1,10 @@
 function result = gridJob(jobNumber)
+	addpath('usr/jmc512/QuantumDotCode/sparseMatlab/shapeFunctions/');
+
 
 	n = 50;
 	vMax = 1000;
-
+	
 
 	elecFieldMax = mod(jobNumber - 1, 501);
 	if (jobNumber <= 501)
