@@ -1,5 +1,5 @@
 function result = gridJob(jobNumber)
-	addpath('usr/jmc512/QuantumDotCode/sparseMatlab/shapeFunctions/');
+	%addpath('usr/jmc512/QuantumDotCode/sparseMatlab/shapeFunctions/');
 
 
 	n = 50;
@@ -35,4 +35,5 @@ function result = gridJob(jobNumber)
 	eigsAns = eigs(H,2,'SM');
 	temp = eigsAns(1) - eigsAns(2);
 	fprintf(fileID,'%f,%f,%d,%f\n',eigsAns(1), eigsAns(2), elecFieldMax, temp);
+        exit;
 end
