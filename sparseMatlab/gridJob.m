@@ -5,15 +5,16 @@ function result = gridJob(jobNumber)
 	n = 50;
 	vMax = 1000;
 	
+    jobInt = str2num(jobNumber); 
 
-	elecFieldMax = mod(jobNumber - 1, 501)
-	if (jobNumber <= 501)
+	elecFieldMax = mod(jobInt - 1, 501)
+	if (jobInt <= 501)
 		shapes = {[2,.1,.1,.1,.8,.8,.8]};
 		fileName = sprintf('log/cube-%d.csv', elecFieldMax);
-	elseif(jobNumber > 501 && jobNumber <= 1002)
+	elseif(jobInt > 501 && jobInt <= 1002)
 		shapes = {[1,.5,.5,.5,.45]};
 		fileName = sprintf('log/sphere-%d.csv', elecFieldMax);
-	elseif(jobNumber > 1002 && jobNumber <= 1503)
+	elseif(jobInt > 1002 && jobInt <= 1503)
 		shapes = {[3,.1,.5,.5,.9,.5,.5,.45]};
 		fileName = sprintf('log/cylinder-%d.csv', elecFieldMax);
 	end
