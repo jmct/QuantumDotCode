@@ -6,7 +6,7 @@ function result = gridJob(jobNumber)
 	vMax = 1000;
 	
 
-	elecFieldMax = mod(jobNumber - 1, 501);
+	elecFieldMax = mod(jobNumber - 1, 501)
 	if (jobNumber <= 501)
 		shapes = {[2,.1,.1,.1,.8,.8,.8]};
 		fileName = sprintf('log/cube-%d.csv', elecFieldMax);
