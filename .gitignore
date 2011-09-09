@@ -8,3 +8,4 @@ sparseMatlab/QDSim2.m
 sparseMatlab/calcVPotential2.m
 eigsTest/
 *~
+*.swp

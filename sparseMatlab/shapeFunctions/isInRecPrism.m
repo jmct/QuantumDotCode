@@ -9,7 +9,7 @@ function isIn = isInRecPrism(x,y,z, recPrism)
     
     point2 = recPrism(1:3) + [recPrism(4), 0,0];
     point3 = recPrism(1:3) + [0,recPrism(5), 0];
-    point5 = recPrism(1:3) + [recPrism(4), 0,0];
+    point5 = recPrism(1:3) + [0, 0, recPrism(6)];
     
     %now we will project the point onto each line from the 
     %origin to the three points we just defined. 
