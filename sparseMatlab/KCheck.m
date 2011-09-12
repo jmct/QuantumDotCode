@@ -17,7 +17,7 @@ results(:,i) = dif(1)  - dif(2)
 i;
 end
 
-FileID = fopen('log/M.csv', 'w');
+FileID = fopen('M.csv', 'w');
 fprintf(FileID, '%d,%f\n', [N;results]);
 
 for i = 1:iterations
@@ -30,7 +30,7 @@ end
 
 
 fclose(FileID);
-FileID = fopen('log/M-2.csv', 'w');
+FileID = fopen('M-2.csv', 'w');
 fprintf(FileID, '%d,%f\n', [N;results]);
 
 fclose(FileID);
