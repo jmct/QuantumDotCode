@@ -19,7 +19,7 @@ function results = QDSim2(shapes)
 	%you'd have to change this if using it anywhere else
 	%as MATLAB does not allow for us to use relational
 	%paths in creating a file (it should...)
-	fileName = sprintf('log/%d_%d_%d-%d.csv', n,vMax,elecFieldMin, elecFieldMax);
+	fileName = sprintf('cube0-500.csv', n,vMax,elecFieldMin, elecFieldMax);
 	fileID = fopen(fileName, 'w');
 	temp = 0;
 	
