@@ -5,7 +5,7 @@ function results = QDSim2(shapes)
 
 	elecStepSize = 5;
 	elecFieldMin = 0;
-	elecFieldMax = 10;
+	elecFieldMax = 500;
 
 	%delta is the size of the spacing between sample points
 	%here we have defined L to be 1 in all three dimensions
